@@ -5,7 +5,7 @@ import unittest
 import shutil
 import os
 import tempfile
-import dashboards_bundlers.php_download as converter
+import jupyter_dashboards_bundlers.php_download as converter
 from os.path import join as pjoin
 from os.path import isdir, isfile, exists
 
