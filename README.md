@@ -99,6 +99,7 @@ The fourth directly sends your notebook and any associated frontend assets to a 
     * `DASHBOARD_SERVER_URL` - protocol, hostname, and port of the dashboard server to which to send dashboard notebooks
     * `DASHBOARD_REDIRECT_URL` (optional) - protocol, hostname, and port to use when redirecting the user's browser after upload if different from `DASHBOARD_SERVER_URL`
     * `DASHBOARD_SERVER_AUTH_TOKEN` (optional) - upload token required by the dashboard server
+    * `DASHBOARD_SERVER_VERIFY_CERT` (optional, default: yes/true) - if set to "false" or "no", skips SSL certificate verification when uploading to the dashboard server
 2. Write a notebook.
 3. Define a dashboard layout using the `jupyter_dashboards` extension.
 4. If the notebook requires any frontend assets (e.g., CSS files), [associate them with the notebook](https://github.com/jupyter-incubator/contentmanagement/blob/master/etc/notebooks/associations_demo/associations_demo.ipynb).

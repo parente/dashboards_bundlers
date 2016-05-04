@@ -12,6 +12,8 @@ from ..local_deploy import bundle_file_references, bundle_declarative_widgets
 
 UPLOAD_ENDPOINT = '/_api/notebooks/'
 VIEW_ENDPOINT = '/dashboards/'
+# Verify certificates by default, but allow user to skip verification
+VERIFY_CERTS = not (os.getenv('DASHBOARD_SERVER_VERIFY_CERT', '').lower() in ('false', 'no'))
 
 def bundle(handler, abs_nb_path):
     '''
@@ -88,7 +90,7 @@ def send_file(file_path, dashboard_name, handler):
             if token:
                 headers['Authorization'] = 'token {}'.format(token)
             result = requests.post(upload_url, files={'file': file_content},
-                headers=headers, timeout=60)
+                headers=headers, timeout=60, verify=VERIFY_CERTS)
             if result.status_code >= 400:
                 raise web.HTTPError(result.status_code)
 
